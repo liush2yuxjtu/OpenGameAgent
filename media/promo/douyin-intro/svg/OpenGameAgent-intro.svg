@@ -124,8 +124,8 @@ text{font-family:'PingFang SC','Noto Sans CJK SC','Microsoft YaHei',system-ui,sa
 <g class="a56">
 <text class="a57 h1" x="480" y="230" text-anchor="middle">OpenGameAgent</text>
 <text class="a58 sub" x="480" y="275" text-anchor="middle">AI 负责想，游戏负责定。</text>
-<g class="a59"><rect x="300" y="310" width="110" height="30" rx="15" class="chip"/><text x="355" y="330" text-anchor="middle" class="chipt">MIT 开源</text><rect x="420" y="310" width="120" height="30" rx="15" class="chip warnc"/><text x="480" y="330" text-anchor="middle" class="chipt">0.3.0-alpha.4</text><rect x="550" y="310" width="110" height="30" rx="15" class="chip"/><text x="605" y="330" text-anchor="middle" class="chipt">C# · .NET 8</text></g>
-<text class="a60 ns" x="480" y="385" text-anchor="middle">github.com/liush2yuxjtu/OpenGameAgent · opengameagent.com</text>
+<g class="a59"><rect x="290" y="310" width="110" height="30" rx="15" class="chip"/><text x="345" y="330" text-anchor="middle" class="chipt">MIT 开源</text><rect x="410" y="310" width="120" height="30" rx="15" class="chip warnc"/><text x="470" y="330" text-anchor="middle" class="chipt">0.3.0-alpha.4</text><rect x="540" y="310" width="130" height="30" rx="15" class="chip"/><text x="605" y="330" text-anchor="middle" class="chipt">netstandard2.1</text></g>
+<text class="a60 ns" x="480" y="385" text-anchor="middle">github.com/EricSun0218/OpenGameAgent · opengameagent.com</text>
 </g>
 <rect x="0" y="534" width="960" height="6" fill="#161b22"/><rect class="prog" x="0" y="534" width="960" height="6" fill="var(--acc)"/>
 </svg>

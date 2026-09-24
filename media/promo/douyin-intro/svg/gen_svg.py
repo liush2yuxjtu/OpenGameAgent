@@ -157,10 +157,10 @@ A(f'<g class="{show(*s6, dy=0)}">')
 A(f'<text class="{show(s6[0]+0.2, s6[1])} h1" x="480" y="230" text-anchor="middle">OpenGameAgent</text>')
 A(f'<text class="{show(s6[0]+0.6, s6[1])} sub" x="480" y="275" text-anchor="middle">AI 负责想，游戏负责定。</text>')
 A(f'<g class="{show(s6[0]+1.0, s6[1])}">'
-  '<rect x="300" y="310" width="110" height="30" rx="15" class="chip"/><text x="355" y="330" text-anchor="middle" class="chipt">MIT 开源</text>'
-  '<rect x="420" y="310" width="120" height="30" rx="15" class="chip warnc"/><text x="480" y="330" text-anchor="middle" class="chipt">0.3.0-alpha.4</text>'
-  '<rect x="550" y="310" width="110" height="30" rx="15" class="chip"/><text x="605" y="330" text-anchor="middle" class="chipt">C# · .NET 8</text></g>')
-A(f'<text class="{show(s6[0]+1.4, s6[1])} ns" x="480" y="385" text-anchor="middle">github.com/liush2yuxjtu/OpenGameAgent · opengameagent.com</text>')
+  '<rect x="290" y="310" width="110" height="30" rx="15" class="chip"/><text x="345" y="330" text-anchor="middle" class="chipt">MIT 开源</text>'
+  '<rect x="410" y="310" width="120" height="30" rx="15" class="chip warnc"/><text x="470" y="330" text-anchor="middle" class="chipt">0.3.0-alpha.4</text>'
+  '<rect x="540" y="310" width="130" height="30" rx="15" class="chip"/><text x="605" y="330" text-anchor="middle" class="chipt">netstandard2.1</text></g>')
+A(f'<text class="{show(s6[0]+1.4, s6[1])} ns" x="480" y="385" text-anchor="middle">github.com/EricSun0218/OpenGameAgent · opengameagent.com</text>')
 A('</g>')
 
 # progress bar
