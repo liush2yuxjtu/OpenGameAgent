@@ -5,7 +5,7 @@ description: Verify a change before it is reported done or goes into a PR. Use b
 
 # /verify — prove the change works before saying it does
 
-This skill is the PR gate for this repository. The project does not use GitHub Actions for this; run the gate yourself and report the evidence. A change is not done until you have checked it and can show the output.
+GitHub Actions (`.github/workflows/ci.yml`) runs the automated build, test, format, and package checks on every push and pull request. This skill adds the checks CI does not run, such as rendering media and reading the output, and requires you to run the local gates before pushing and report the evidence. A change is not done until you have checked it and can show the output.
 
 ## Rules
 
@@ -55,7 +55,7 @@ dotnet format OpenGameAgent.sln --verify-no-changes --no-restore
 
 ### Git / PR delivery
 
-- `git status --short` and `git log -1 --stat`: exactly the intended files, and no scratch files (frames, `raw.pcm`, `page_built.html`).
+- `git status --short` (uncommitted and untracked files) and `git diff --stat <target-branch>...HEAD` (every commit in the PR): exactly the intended files, and no scratch files (frames, `raw.pcm`, `page_built.html`).
 - Binary types (`*.mp4`, `*.m4a`) are marked `binary` in `.gitattributes`. Flag any addition over about 10 MB as repository-size debt.
 - After the push, list the PR's files through the GitHub connector and confirm the count and paths. After the merge, read the target path on `main` and confirm the files exist.
 

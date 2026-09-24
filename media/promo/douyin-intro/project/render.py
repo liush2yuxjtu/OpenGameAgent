@@ -1,8 +1,8 @@
 import json, sys, subprocess, os
 from playwright.sync_api import sync_playwright
-data=json.load(open('data.json'))
-html=open('page.html').read().replace('<script>','<script>window.__DATA__='+json.dumps(data,ensure_ascii=False)+';',1)
-open('page_built.html','w').write(html)
+data=json.load(open('data.json',encoding='utf-8'))
+html=open('page.html',encoding='utf-8').read().replace('<script>','<script>window.__DATA__='+json.dumps(data,ensure_ascii=False)+';',1)
+open('page_built.html','w',encoding='utf-8').write(html)
 mode=sys.argv[1]
 with sync_playwright() as p:
     b=p.chromium.launch(); pg=b.new_page(viewport={'width':1080,'height':1920})
@@ -17,5 +17,7 @@ with sync_playwright() as p:
         for i in range(n):
             pg.evaluate(f'render({i/fps})'); ff.stdin.write(pg.screenshot(type='jpeg',quality=92))
             if i%150==0: print(i,flush=True)
-        ff.stdin.close(); ff.wait()
+        ff.stdin.close()
+        if ff.wait() != 0:
+            raise subprocess.CalledProcessError(ff.returncode, ff.args)
     b.close()

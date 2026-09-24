@@ -34,7 +34,7 @@ Reply in the user's language (Chinese by default for this maintainer). Structure
    - Options may be combined (for example "1+4").
 5. **Closing line:** `Reply with the numbers.`
 
-When there is only one sensible next step, skip the table and state it in one sentence.
+When there is only one sensible next step, skip the table, state it in one sentence, and end with `Reply yes to proceed, or say what to change.`
 
 ## After the answer
 

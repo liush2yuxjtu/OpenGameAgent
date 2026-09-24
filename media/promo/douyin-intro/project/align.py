@@ -45,5 +45,6 @@ lv=[]
 for f in range(nf):
   a=int(f/fps*100); seg=db[a:a+4] if a<n else [-99]
   v=(max(seg)-thr)/25; lv.append(round(float(min(1,max(0,v))),2) if spf[min(a,n-1)] else 0)
-json.dump(dict(clauses=out,mouth=lv,dur=dur),open('data.json','w'),ensure_ascii=False)
+with open('data.json','w',encoding='utf-8') as f:
+  json.dump(dict(clauses=out,mouth=lv,dur=dur),f,ensure_ascii=False)
 print('dur',dur,'frames',nf)
