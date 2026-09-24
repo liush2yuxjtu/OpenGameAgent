@@ -15,3 +15,5 @@ LICENSE text eol=lf
 *.dll binary
 *.pdb binary
 *.zip binary
+*.mp4 binary
+*.m4a binary
