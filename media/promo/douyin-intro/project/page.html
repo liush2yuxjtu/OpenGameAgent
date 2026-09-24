@@ -1,0 +1,194 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0b0f14}
+body{font-family:'Noto Sans CJK SC','PingFang SC',sans-serif;color:#e8eef5;position:relative}
+#bg{position:absolute;inset:0;background:
+  radial-gradient(900px 700px at 50% 18%,rgba(46,204,113,.22),transparent 70%),
+  radial-gradient(800px 800px at 90% 90%,rgba(79,195,247,.14),transparent 70%),#0b0f14}
+#grid{position:absolute;inset:-80px;background-image:linear-gradient(rgba(255,255,255,.045) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.045) 2px,transparent 2px);background-size:80px 80px}
+.abs{position:absolute}
+#bars{left:60px;right:60px;top:120px;height:8px;display:flex;gap:10px}
+#bars div{flex:1;background:rgba(255,255,255,.18);border-radius:4px;overflow:hidden}
+#bars i{display:block;height:100%;background:#2ecc71;width:0}
+#tag{left:60px;top:156px;font-size:30px;font-weight:700;padding:8px 22px;border-radius:30px;background:#2ecc71;color:#06220f}
+#tag2{left:300px;top:162px;font-size:28px;color:#9fb3c8}
+#head{left:40px;right:40px;top:240px;text-align:center;font-size:84px;font-weight:900;line-height:1.15;letter-spacing:1px}
+#head b{color:#ffd23f}
+.stage{left:60px;right:60px;top:470px;height:600px}
+.card{background:#141c26;border:3px solid #2a3644;border-radius:28px}
+.row{height:84px;border-radius:18px;background:#0f1620;border:3px solid #2a3644;display:flex;flex-direction:column;justify-content:center;padding:0 26px;margin-bottom:16px}
+.row small{font-size:24px;font-weight:700;color:#8b9bb0}
+.row code{font-family:'DejaVu Sans Mono',monospace;font-size:32px;color:#e8eef5}
+.row.m{border-color:#4fc3f7}.row.m small{color:#4fc3f7}
+.row.g{border-color:#2ecc71}.row.g small{color:#2ecc71}
+.row.n{border-color:#ffd23f}.row.n small{color:#ffd23f}
+.bub{font-size:44px;font-weight:700;padding:26px 36px;border-radius:30px;display:inline-block}
+.stamp{font-size:92px;font-weight:900;color:#ff5a5a;border:10px solid #ff5a5a;border-radius:24px;padding:10px 36px;background:rgba(40,10,12,.85)}
+.chip{display:inline-block;font-size:36px;font-weight:700;padding:14px 30px;border-radius:50px;border:3px solid #2ecc71;background:rgba(46,204,113,.12);margin:10px}
+.tile{position:absolute;width:300px;height:170px;border-radius:26px;background:#141c26;border:4px solid #4fc3f7;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.tile b{font-size:46px}.tile span{font-size:26px;color:#8b9bb0;margin-top:6px}
+.pchip{display:inline-block;font-size:30px;padding:10px 24px;border-radius:40px;background:#141c26;border:3px solid #2a3644;margin:8px}
+#sub{left:40px;right:40px;top:1100px;height:170px;display:flex;align-items:center;justify-content:center;text-align:center}
+#subt{font-size:76px;font-weight:900;line-height:1.1;color:#fff;
+  text-shadow:0 0 2px #000,4px 4px 0 #000,-4px -4px 0 #000,4px -4px 0 #000,-4px 4px 0 #000,0 5px 0 #000,0 -5px 0 #000,5px 0 0 #000,-5px 0 0 #000,0 10px 24px rgba(0,0,0,.7)}
+#subt em{font-style:normal;color:#ffd23f}
+#av{left:40px;top:1290px;width:330px;height:330px}
+#avname{left:370px;top:1470px;font-size:30px;font-weight:700;background:rgba(20,28,38,.9);border:3px solid #2ecc71;padding:8px 22px;border-radius:30px}
+</style></head>
+<body>
+<div id="bg"></div><div id="grid" class="abs"></div>
+<div id="bars" class="abs"><div><i></i></div><div><i></i></div><div><i></i></div><div><i></i></div><div><i></i></div><div><i></i></div></div>
+<div id="tag" class="abs">开源推荐</div><div id="tag2" class="abs">游戏开发者必看 · AI NPC</div>
+<div id="head" class="abs"></div>
+
+<!-- S1 -->
+<div id="s1" class="abs stage">
+  <div id="s1a" class="abs" style="left:0;top:20px"><div class="bub" style="background:#1f2a37">玩家：能帮我修剑吗？</div></div>
+  <div class="abs" style="right:0;top:170px;display:flex;align-items:center;gap:26px">
+    <div id="s1b" class="bub" style="background:#2a2f45;border:3px solid #4fc3f7">NPC：当然可以！</div>
+    <svg width="150" height="150" viewBox="-60 -60 120 120"><polygon points="0,-55 48,-27 48,27 0,55 -48,27 -48,-27" fill="#1c2633" stroke="#4fc3f7" stroke-width="5"/><circle cx="-16" cy="-6" r="7" fill="#e8eef5"/><circle cx="16" cy="-6" r="7" fill="#e8eef5"/><path d="M-16,20 Q0,30 16,20" stroke="#e8eef5" stroke-width="5" fill="none"/></svg>
+  </div>
+  <div id="s1c" class="abs" style="left:0;right:0;top:380px;text-align:center;font-size:40px;color:#8b9bb0">（ 站着不动 · 剑还是坏的 ）</div>
+  <div id="s1d" class="abs" style="left:0;right:0;top:250px;text-align:center"><span class="stamp">啥也没干</span></div>
+</div>
+
+<!-- S2 -->
+<div id="s2" class="abs stage" style="text-align:center">
+  <svg id="logo" class="abs" style="left:330px;top:0" width="300" height="300" viewBox="-80 -80 160 160"><g id="hex"><polygon points="0,-70 61,-35 61,35 0,70 -61,35 -61,-35" fill="none" stroke="#2ecc71" stroke-width="6"/></g><circle r="24" fill="#2ecc71"/><g id="ring"><circle r="40" fill="none" stroke="#4fc3f7" stroke-width="4" stroke-dasharray="8 10"/></g></svg>
+  <div id="s2a" class="abs" style="left:0;right:0;top:300px;font-size:92px;font-weight:900">OpenGameAgent</div>
+  <div id="s2s" class="abs" style="left:0;right:0;top:432px;font-size:34px;color:#9fb3c8">开源 C# Agent 运行时 · 给游戏角色的大脑</div>
+  <div class="abs" style="left:0;right:0;top:500px"><span id="s2b" class="chip">会想 · ReAct 推理</span><span id="s2c" class="chip" style="border-color:#ffd23f;background:rgba(255,210,63,.12)">会做 · 调用游戏工具</span></div>
+</div>
+
+<!-- S3 -->
+<div id="s3" class="abs stage">
+  <div id="r0" class="row"><small>玩家 → 铁匠 NPC</small><code>{"intent":"repair","item":"sword"}</code></div>
+  <div id="r1" class="row m"><small>NPC 思考 → 调用工具</small><code>inspect_item(sword)</code></div>
+  <div id="r2" class="row g"><small>游戏返回</small><code>durability = 0.35</code></div>
+  <div id="r3" class="row m"><small>NPC 思考 → 调用工具</small><code>repair(sword)</code></div>
+  <div id="r4" class="row g"><small>游戏确认</small><code>✓ committed · receipt #9001</code></div>
+  <div id="r5" class="row n"><small>铁匠 NPC 开口</small><code style="font-family:inherit;font-weight:700">“修好了，比新的还结实。”</code></div>
+</div>
+
+<!-- S4 -->
+<div id="s4" class="abs stage">
+  <div class="abs card" style="left:0;top:0;width:340px;height:150px;border-color:#4fc3f7;display:flex;flex-direction:column;align-items:center;justify-content:center"><b style="font-size:46px">AI 模型</b><span style="font-size:26px;color:#8b9bb0">只能发请求</span></div>
+  <div class="abs card" style="right:0;top:0;width:340px;height:150px;border-color:#2ecc71;display:flex;flex-direction:column;align-items:center;justify-content:center"><b style="font-size:46px">游戏规则</b><span style="font-size:26px;color:#8b9bb0">说了算</span></div>
+  <svg class="abs" style="left:380px;top:170px" width="200" height="230" viewBox="-80 -90 160 180"><path d="M0,-80 L66,-54 L66,6 C66,48 30,74 0,86 C-30,74 -66,48 -66,6 L-66,-54 Z" fill="rgba(46,204,113,.14)" stroke="#2ecc71" stroke-width="6"/><text y="14" text-anchor="middle" font-size="40" font-weight="900" fill="#e8eef5" font-family="Noto Sans CJK SC">校验</text></svg>
+  <div id="p1" class="abs row g" style="width:360px;left:0;top:0;align-items:center"><code>repair(sword)</code></div>
+  <div id="ok1" class="abs" style="right:70px;top:300px;font-size:52px;font-weight:900;color:#2ecc71">✓ 通过</div>
+  <div id="p2" class="abs row" style="width:400px;left:0;top:0;align-items:center;border-color:#ff5a5a;background:#2b1416"><code>give_gold(9999)</code></div>
+  <div id="s4d" class="abs" style="left:0;right:0;top:430px;text-align:center"><span class="stamp">驳回</span></div>
+</div>
+
+<!-- S5 -->
+<div id="s5" class="abs stage">
+  <div id="t0" class="tile" style="left:0;top:0"><b>Unity 6</b><span>UPM 包</span></div>
+  <div id="t1" class="tile" style="left:330px;top:0"><b>Godot 4.7</b><span>.NET 进程内</span></div>
+  <div id="t2" class="tile" style="left:660px;top:0"><b>Unreal 5.8</b><span>C++ 插件</span></div>
+  <div id="pc" class="abs" style="left:0;right:0;top:210px;text-align:center"><span class="pchip">OpenAI</span><span class="pchip">Anthropic</span><span class="pchip">Gemini</span><span class="pchip">Mistral</span><span class="pchip">Ollama</span><span class="pchip">LM Studio</span><span class="pchip">vLLM</span><span class="pchip">llama.cpp</span></div>
+  <div id="mit" class="abs" style="left:0;right:0;top:430px;text-align:center"><span style="display:inline-block;font-size:88px;font-weight:900;padding:6px 50px;border-radius:30px;background:#ffd23f;color:#1a1400">MIT 开源</span></div>
+</div>
+
+<!-- S6 -->
+<div id="s6" class="abs stage" style="text-align:center">
+  <div id="s6a" class="abs" style="left:0;right:0;top:0;font-size:40px;color:#9fb3c8">独立游戏 · 工作室 · Mod 作者</div>
+  <div id="s6b" class="abs" style="left:0;right:0;top:80px"><svg width="170" height="170" viewBox="-60 -60 120 120"><polygon points="0,-52 15,-17 52,-16 23,8 33,45 0,24 -33,45 -23,8 -52,-16 -15,-17" fill="#ffd23f"/></svg><div style="font-size:52px;font-weight:900;color:#ffd23f">先收藏</div></div>
+  <div id="s6c" class="abs" style="left:40px;right:40px;top:370px;height:120px;border-radius:60px;background:#fff;display:flex;align-items:center;padding:0 40px;gap:24px">
+    <svg width="56" height="56" viewBox="0 0 24 24"><circle cx="10" cy="10" r="7" stroke="#333" stroke-width="2.6" fill="none"/><line x1="15" y1="15" x2="21" y2="21" stroke="#333" stroke-width="2.6"/></svg>
+    <span style="font-size:30px;color:#666;font-weight:700">GitHub</span>
+    <span id="typed" style="font-size:52px;color:#111;font-weight:900;font-family:'DejaVu Sans',sans-serif"></span><span id="caret" style="width:4px;height:60px;background:#111"></span>
+  </div>
+</div>
+
+<div id="sub" class="abs"><div id="subt"></div></div>
+<svg id="av" class="abs" viewBox="0 0 330 330">
+  <defs><clipPath id="cc"><circle cx="165" cy="165" r="160"/></clipPath></defs>
+  <circle cx="165" cy="165" r="160" fill="#16202b" stroke="#2ecc71" stroke-width="8"/>
+  <g clip-path="url(#cc)"><g id="avb">
+    <path d="M60,340 C60,250 110,230 165,230 C220,230 270,250 270,340 Z" fill="#2ecc71"/>
+    <path d="M140,232 L165,262 L190,232" fill="#0b0f14"/>
+    <rect x="148" y="200" width="34" height="40" rx="12" fill="#f2c9a5"/>
+    <g id="avhead">
+      <ellipse cx="165" cy="140" rx="74" ry="82" fill="#f7d4b3"/>
+      <path d="M90,130 C86,70 125,48 168,50 C215,52 246,80 240,132 C230,100 205,88 170,92 C140,94 110,104 90,130 Z" fill="#1d1d25"/>
+      <path d="M95,112 C120,88 150,84 172,92 C150,96 125,104 100,126 Z" fill="#1d1d25"/>
+      <ellipse cx="91" cy="148" rx="11" ry="16" fill="#f2c9a5"/><ellipse cx="239" cy="148" rx="11" ry="16" fill="#f2c9a5"/>
+      <path d="M78,140 C78,70 252,70 252,140" stroke="#4fc3f7" stroke-width="9" fill="none"/>
+      <rect x="68" y="126" width="24" height="44" rx="10" fill="#4fc3f7"/><rect x="238" y="126" width="24" height="44" rx="10" fill="#4fc3f7"/>
+      <path d="M80,166 C84,196 110,206 136,200" stroke="#4fc3f7" stroke-width="6" fill="none"/><circle cx="138" cy="200" r="7" fill="#2a3644"/>
+      <path d="M124,118 L150,114" stroke="#1d1d25" stroke-width="6" stroke-linecap="round"/><path d="M180,114 L206,118" stroke="#1d1d25" stroke-width="6" stroke-linecap="round"/>
+      <g id="eyes"><ellipse cx="138" cy="138" rx="9" ry="11" fill="#1d1d25"/><ellipse cx="192" cy="138" rx="9" ry="11" fill="#1d1d25"/>
+        <circle cx="141" cy="134" r="3" fill="#fff"/><circle cx="195" cy="134" r="3" fill="#fff"/></g>
+      <ellipse cx="118" cy="165" rx="12" ry="7" fill="#ff9a9a" opacity=".45"/><ellipse cx="212" cy="165" rx="12" ry="7" fill="#ff9a9a" opacity=".45"/>
+      <ellipse id="mouth" cx="165" cy="178" rx="16" ry="4" fill="#8a2b2b"/>
+    </g>
+  </g></g>
+</svg>
+<div id="avname" class="abs">阿游 · 带你看开源</div>
+
+<script>
+const D = window.__DATA__;
+const C = D.clauses;
+const HEAD = {1:'NPC 只会<b>嘴上答应</b>？',2:'<b>OpenGameAgent</b>',3:'先查 · 再修 · <b>再开口</b>',4:'AI 提请求<br><b>游戏说了算</b>',5:'引擎模型<b>随便接</b>',6:'<b>收藏</b>！GitHub 搜它'};
+const KEY = ['NPC','OpenGameAgent','9999','驳回','MIT','GitHub','会想','会做','修好了','游戏说了算','Unity','Godot','Unreal','什么都不做'];
+const $ = id => document.getElementById(id);
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const ease=v=>1-Math.pow(1-clamp(v),3);
+const back=v=>{v=clamp(v);const c=1.9;return 1+(c+1)*Math.pow(v-1,3)+c*Math.pow(v-1,2)};
+function ci(t){let k=-1;for(let i=0;i<C.length;i++) if(t>=C[i].t0-0.05) k=i; return k}
+function secRange(s){const a=C.filter(c=>c.sec==s);return [a[0].t0,a[a.length-1].t1]}
+function clauseT(i){return C[i].t0}
+function pop(el,t,t0,dy=40){const p=ease((t-t0)/0.35);el.style.opacity=p;el.style.transform=`translateY(${(1-p)*dy}px)`;}
+function popS(el,t,t0){const p=(t-t0)/0.3;el.style.opacity=clamp(p*2);el.style.transform=`scale(${t<t0?0.5:(p<1?2.2-1.2*back(p):1)}) rotate(-8deg)`;}
+function hl(s){let o=s;KEY.forEach(k=>{o=o.split(k).join('\u0001'+k+'\u0002')});return o.replace(/\u0001/g,'<em>').replace(/\u0002/g,'</em>');}
+let lastSub=-2;
+window.render = function(t){
+  const f=Math.round(t*30);
+  $('grid').style.transform=`translate(${-(t*18)%80}px,${-(t*30)%80}px)`;
+  let k=ci(t); let sec=k<0?1:C[k].sec; if(t>C[C.length-1].t1) sec=6;
+  // bars
+  document.querySelectorAll('#bars i').forEach((el,i)=>{const [a,b]=secRange(i+1);el.style.width=(clamp((t-a)/(b-a))*100)+'%'});
+  // headline
+  const [sa]=secRange(sec); const hp=ease((t-sa+0.05)/0.3);
+  $('head').innerHTML=HEAD[sec]; $('head').style.transform=`scale(${0.85+0.15*back((t-sa+0.05)/0.35)})`; $('head').style.opacity=hp;
+  // stages
+  for(let s=1;s<=6;s++){const el=$('s'+s);const [a,b]=secRange(s);const on=(s==sec);el.style.display=on?'block':'none';
+    if(on){const p=ease((t-a+0.05)/0.3);el.style.opacity=p;el.style.transform=`translateX(${(1-p)*80}px)`}}
+  const T=i=>C[i].t0;
+  if(sec==1){pop($('s1a'),t,T(0));pop($('s1b'),t,T(2));pop($('s1c'),t,T(3)+0.2);popS($('s1d').firstChild,t,T(3)+0.6);}
+  if(sec==2){$('hex').setAttribute('transform',`rotate(${t*40})`);$('ring').setAttribute('transform',`rotate(${-t*90})`);
+    const lp=back((t-T(4))/0.5);$('logo').style.transform=`scale(${t<T(4)?0:lp})`;
+    pop($('s2a'),t,T(5));pop($('s2s'),t,T(5)+0.3);pop($('s2b'),t,T(6));pop($('s2c'),t,T(7));}
+  if(sec==3){pop($('r0'),t,T(8));pop($('r1'),t,T(9));pop($('r2'),t,T(9)+0.6);pop($('r3'),t,T(10));pop($('r4'),t,T(11)+0.5);pop($('r5'),t,T(12));}
+  if(sec==4){
+    // p1 travels from model to game
+    const a1=clamp((t-T(14))/1.0); const x1=600*ease(a1); const y1=190+ Math.sin(a1*Math.PI)*-40 + 0;
+    $('p1').style.transform=`translate(${x1}px,${y1}px)`; $('p1').style.opacity=t<T(14)?0:1;
+    $('ok1').style.opacity=clamp((t-T(14)-1.0)/0.3);
+    const a2=clamp((t-T(16))/0.9); const x2=280*ease(a2); const y2=300;
+    let rot=0,drop=0; if(t>T(17)){const q=clamp((t-T(17))/0.5);rot=-12*q;drop=40*q}
+    $('p2').style.transform=`translate(${x2}px,${y2+drop}px) rotate(${rot}deg)`; $('p2').style.opacity=t<T(16)?0:1;
+    const sh=t>T(17)&&t<T(17)+0.4?Math.sin(t*90)*10:0;
+    popS($('s4d').firstChild,t,T(17)); $('s4d').style.transform=`translateX(${sh}px)`;}
+  if(sec==5){[0,1,2].forEach(i=>{const p=back((t-T(18)-i*0.35)/0.4);$('t'+i).style.transform=`scale(${t<T(18)+i*0.35?0:p})`});
+    pop($('pc'),t,T(19)); const mp=back((t-T(20))/0.4); $('mit').style.transform=`scale(${t<T(20)?0:mp}) rotate(-3deg)`;}
+  if(sec==6){pop($('s6a'),t,T(21)); const sp=back((t-T(22))/0.45); $('s6b').style.transform=`scale(${t<T(22)?0:sp})`;
+    pop($('s6c'),t,T(22)+0.3); const str='OpenGameAgent'; const n=Math.floor(clamp((t-T(23)-0.2)/1.3)*str.length); $('typed').textContent=str.slice(0,n);
+    $('caret').style.opacity=(Math.floor(t*2.5)%2)?1:0; const pulse=1+0.04*Math.sin(t*6); if(t>T(23)+1.6) $('s6c').style.transform=`scale(${pulse})`;}
+  // subtitle
+  const st=$('subt');
+  if(k>=0 && t<=C[k].t1+0.6){ if(k!=lastSub){st.innerHTML=hl(C[k].text);lastSub=k}
+    const p=(t-C[k].t0)/0.18; st.style.transform=`scale(${p<1?1.25-0.25*ease(p):1})`; st.style.opacity=1;}
+  else st.style.opacity=0;
+  // avatar
+  const lv=D.mouth[Math.min(f,D.mouth.length-1)]||0; const lv2=(lv+(D.mouth[f-1]||0))/2;
+  $('mouth').setAttribute('ry',3+22*lv2); $('mouth').setAttribute('rx',16+6*lv2);
+  const blink=(t%3.4)<0.12?0.1:1; $('eyes').setAttribute('transform',`translate(0 ${138*(1-blink)}) scale(1 ${blink})`);
+  $('avhead').setAttribute('transform',`translate(0 ${-4*lv2}) rotate(${Math.sin(t*1.7)*3} 165 200)`);
+  $('av').style.transform=`scale(${1+0.02*lv2})`;
+};
+</script>
+</body></html>
