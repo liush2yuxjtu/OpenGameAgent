@@ -2,7 +2,7 @@
 
 A playable Godot 4.5 dark-cultivation survival vignette. This remakes the previous Echo Squad concept around **finite lives, information acquired through failure, active memory selection, and morally costly escape**. It is an original scenario inspired by the publicly available premise of [《苟在初圣魔门当人材》, 鹤守月满池](https://www.qidian.com/book/1043182343/), not an official adaptation, a reconstruction of novel chapters, or a copy of its prose/characters.
 
-Open `game/project.godot` with Godot 4.5.1 and run. The same project exports to a single-threaded WebGL game. The included Chinese font is a renamed Noto Sans CJK subset under the SIL Open Font License (see `game/FONT-LICENSE.txt`). All sprites are original code-authored pixel art.
+Open `game/project.godot` with Godot 4.5.1 and run. The same project exports to a single-threaded WebGL game. The included Chinese font is a renamed Noto Sans CJK subset under the SIL Open Font License (see `game/FONT-LICENSE.txt`). Actor sprites are original code-authored pixel art; courtyard tiles reuse Kenney Tiny Dungeon under CC0.
 
 ## Chapter 1: 领丹日
 
@@ -18,7 +18,7 @@ A round begins with four lives. Death consumes a life; there are no automatic st
 
 ## Controls
 
-- WASD/arrows: move; E: nearby interaction; Space/left mouse: auto-aim talisman attack.
+- WASD/arrows: move; E: nearby interaction; automatic talisman attacks. Q: sword ring, F: protective shield, R: dash.
 - 1–4: select a dialog option while a dialog is open; otherwise follow/hold/cover/scout companion orders.
 - M: memory backpack; click a fragment to read and equip it, then return to the courtyard.
 - Enter: optional natural-language companion order; Escape: close a live dialog or cancel text entry.
@@ -72,18 +72,25 @@ python3 -m http.server --directory examples/EmberLedger/build/web 8000
 
 The packer compresses WebAssembly for static hosts with a 25 MiB asset limit. Modern WebGL 2 and `DecompressionStream` are required. `?demo=1` starts an explicitly labelled capture rehearsal, without modifying saved memory.
 
-## Reproduce the new 50-second trailer
+## Reproduce the 36-second Hypit trailer
+
+Capture actual gameplay first (requires Godot and a display):
 
 ```sh
 mkdir -p examples/EmberLedger/build
-godot --path examples/EmberLedger/game --resolution 1280x800 --write-movie "$PWD/examples/EmberLedger/build/gameplay.avi" --fixed-fps 30 --disable-vsync --quit-after 1500 -- --demo
-python3 examples/EmberLedger/video/make_cards.py
-bash examples/EmberLedger/video/render.sh
+godot --path examples/EmberLedger/game --resolution 960x600 --write-movie "$PWD/examples/EmberLedger/build/gameplay.avi" --fixed-fps 30 --disable-vsync --quit-after 1650 -- --demo
+cd examples/EmberLedger/video/hypit
+npm install
+npm run component:build
+python3 prepare.py
+npx hypit packages install @hyperframes/engine@0.7.101
+npx hypit packages install @hyperframes/producer@0.7.101
+npm run render
+# Export the returned build ID with:
+# npx hypit get BUILD_ID --output final.video --workspace . --to ../../build/ember-ledger-douyin.mp4
 ```
 
-Requires a display, Python/Pillow, a CJK font (`ASH_FONT` can specify it), and FFmpeg with libx264. The film contains a 3-second hook, 40 seconds of continuous real gameplay and a 7-second closing card. Its original pentatonic pulse soundtrack is synthesized by the supplied script; there is no voiceover. No novel prose or official artwork is reused. Generated engine state and media are excluded from Git.
-
-The updated design app retains the infinite canvas, movable shot cards, rough/storyboard/fine views, coarse presets that override finer settings, JSON copy/export/import, and explicit separation between editable plans and the fixed rendered MP4.
+The preparation script requires macOS `say` with the Tingting voice, Python/Pillow and FFmpeg/FFprobe on PATH. Other platforms can replace the generated narration files. The supplied runtime configuration downloads a compatible browser; an installed Chrome can be configured locally. The 36-second film uses real gameplay, original synthesized chip music, Mandarin synthesized narration, and Hypit semantic titles. No novel prose or official artwork is reused. Generated engine state is excluded from Git.
 
 ## 2026-09-28 combat cut
 
@@ -94,3 +101,5 @@ The playable Web export uses explicit offline companion orders. The C# OpenGameA
 Film source lives in video/hypit (Hypit 0.2.16). Actual Godot movie capture is edited by prepare.py, then imported as normalized media and composed with semantic shot titles and a mixed audio track through Hypit. Mandarin voice is macOS Tingting synthesis, not human recording. All media execution is local. 36 seconds, 720×1280, 30 fps. Virality is a creative objective; distribution performance has not been measured.
 
 Verification: Godot 4.5.1 import and gameplay tests PASS; skill cooldown and AOE damage checks PASS; complete ordinary demo driver wins at 46.69 seconds, life 3, two lives remaining, HP 65, both characters rescued.
+
+The Web build requires HTTPS and WebGL2. The managed cloud preview lacks these, so browser gameplay acceptance is not claimed; native Godot capture and integration fixtures passed. The film contains synthetic Mandarin narration; audio levels are checked by analysis, not a human listening review.

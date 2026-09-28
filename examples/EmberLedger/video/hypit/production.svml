@@ -30,8 +30,8 @@
  <loop:Message id="list" sender="第三世，我翻开了名册。" side="left" at="15s" text="上面有我，也有一直跟着我的他。"/>
  <loop:Message id="burn" sender="这次，烧掉他们的规矩。" side="left" at="20s" text="剑阵破围，护体扛伤，闪身躲阵。"/>
  <loop:Message id="rescue" sender="少一点血，多一个活人。" side="left" at="28s" text="你救下的人，会和你一起战斗。"/>
- <loop:Message id="end" sender="烬籍 · 夺炉夜" side="left" at="32s" text="如果还能重来，&#10;你会先记住哪一个谎？"/>
+ <loop:Message id="end" sender="烬籍 · 夺炉夜" side="left" at="32s" text="如果还能重来，你会先记住哪一个谎？"/>
  </loop:Scene>
  <film:Film id="main" canvas={canvas} timeline={animation.timeline} appearance={style.film.main}><film:Track source={capture.visual}/><film:Track source={titles.track}/><film:Track source={sound.audio}/></film:Film>
  <render:Video id="final" composition={main.composition} timeline={animation.timeline}/>
-</svml>
+<render:Video id="ending" composition={main.composition} timeline={animation.timeline} start-frame="960" end-frame-exclusive="1080"/></svml>
