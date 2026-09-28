@@ -1,0 +1,7 @@
+.game-state/
+game/.godot/
+build/
+agent/bin/
+agent/obj/
+video/cards/
+.env

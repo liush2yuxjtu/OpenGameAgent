@@ -1,0 +1,20 @@
+{
+  "name": "game-v2-hypit-recut",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@hypit/hypit": "0.2.16",
+    "@game/loop-scene": "file:./packages/loop-scene"
+  },
+  "scripts": {
+    "component:build": "tsc -p packages/loop-scene/tsconfig.json",
+    "check": "hypit check production.svrun --workspace .",
+    "plan": "hypit plan production.svrun --workspace . --runtime hypit.runtime.json",
+    "render": "hypit build production.svrun --workspace . --runtime hypit.runtime.json --follow"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "24.10.1"
+  }
+}

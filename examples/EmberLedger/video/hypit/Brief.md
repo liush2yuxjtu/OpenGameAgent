@@ -1,0 +1,2 @@
+# 夺炉夜
+Build a playable Godot prototype and a 36-second Douyin vertical film. Original plot inspired by finite reincarnation, hostile sect systems and knowledge-based survival. Actual gameplay capture, edited to a short hook, failure, manual memory selection, ledger reveal, combat, rescue ending and question. No claim of guaranteed reach or live AI decisions. All rendering is local; no paid generation requests authorized or used.

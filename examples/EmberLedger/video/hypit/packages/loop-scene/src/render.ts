@@ -1,0 +1,19 @@
+import { sealVisualTrack } from '@hypit/hypit/composition';
+import type { VisualElement } from '@hypit/hypit/composition';
+import { browserProgram } from '@hypit/hypit/hyperframes';
+import type { FontArtifactRef } from '@hypit/hypit/media';
+import type { Timeline } from '@hypit/hypit/timeline';
+import type { CanvasSpace } from '@hypit/hypit/spatial';
+import { assertTemporalWindowFor } from '@hypit/hypit/temporal';
+import type { TemporalInstant, TemporalWindow } from '@hypit/hypit/temporal';
+export type Message = {id:string;sender:string;text:string;side:'left'|'right';at:TemporalInstant};
+export type ChatOptions = {id:string;title:string;entranceFrames:number};
+export function renderChat(timeline:Timeline,canvas:CanvasSpace,window:TemporalWindow,font:FontArtifactRef,messages:readonly Message[],options:ChatOptions,image:FontArtifactRef['sources'][number]['artifact']) {
+ assertTemporalWindowFor(window,{subjectId:options.id,space:timeline});
+ let order=0;
+ const text=(id:string,value:string,size:number,color='#eadbc0'):VisualElement=>({id,kind:'text',parent:'loop',order:++order,text:value,fonts:[font],style:[{name:'font-size',value:`${size}px`},{name:'line-height',value:1.3},{name:'color',value:color}]});
+ const children=[text('brand','烬籍 · 夺炉夜',24),text('tag','GODOT  ×  OPENGAMEAGENT',16,'#9eaa98'),text('label','实机录制 / 剪辑版',20,'#d8b784'),text('footer','你会救他，还是只救自己？',27),...messages.flatMap(m=>[text(m.id+'h',m.sender,58),text(m.id+'b',m.text,32,'#afc3b0')])];
+ const slot=(id:string)=>`{{${id}}}`;
+ const program=browserProgram({html:`<header>${slot('brand')}${slot('tag')}</header><div class="rule"></div>${messages.map(m=>`<section class="beat" id="${m.id}"><div class="headline">${slot(m.id+'h')}</div><div class="body">${slot(m.id+'b')}</div></section>`).join('')}<div class="label">${slot('label')}</div><div class="steps"><span>受骗</span><span>记忆</span><span>反杀</span><span>选择</span></div><div class="bar"></div><footer>${slot('footer')}</footer>`,css:`*{box-sizing:border-box}header{position:absolute;left:42px;right:42px;top:54px;display:flex;align-items:center;justify-content:space-between}.rule{position:absolute;left:42px;right:42px;top:108px;height:2px;background:#455249}.headline{position:absolute;left:42px;right:42px;top:148px;white-space:pre-line;letter-spacing:2px}.body{position:absolute;left:44px;right:60px;top:825px;white-space:pre-line;line-height:1.6}.label{position:absolute;left:42px;top:758px;background:#28342b;padding:7px 14px}.steps{position:absolute;left:44px;right:72px;top:1010px;display:flex;justify-content:space-between;font:22px sans-serif;color:#657766}.steps span.active{color:#eed6a0}.bar{position:absolute;left:44px;top:1060px;height:3px;background:#d49b67}footer{position:absolute;left:44px;right:60px;top:1110px}.beat{display:none}.headline>div{font-weight:700}`,data:{times:messages.map(m=>m.at.frame),ids:messages.map(m=>m.id),duration:window.span.endFrameExclusive},setup:`const beats=[...root.querySelectorAll('.beat')];return frame=>{let k=0;data.times.forEach((t,i)=>{if(frame>=t)k=i});const age=frame-data.times[k],p=Math.min(1,age/8);beats.forEach((b,i)=>{b.style.display=i===k?'block':'none';b.querySelector('.headline').style.transform='translateY('+((1-p)*15)+'px)';b.style.opacity=String(p)});root.querySelector('.bar').style.width=String(600*frame/data.duration)+'px';root.querySelectorAll('.steps span').forEach((e,i)=>e.classList.toggle('active',i===Math.min(3,Math.floor(k/2))));};`});
+ return sealVisualTrack({id:options.id,programSpaceId:timeline.id,visualIr:'hypit.visual-ir@1',presents:[{id:options.id,span:window.span,stacking:{order:100,tieBreak:options.id},elements:[{id:'loop',kind:'program',order:0,program,style:[{name:'position',value:'absolute'},{name:'inset',value:0},{name:'width',value:`${canvas.widthPx}px`},{name:'height',value:`${canvas.heightPx}px`}]},...children]}]});
+}

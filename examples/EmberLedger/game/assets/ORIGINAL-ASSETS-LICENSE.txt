@@ -1,0 +1,1 @@
+Original player, ally, npc and enemy pixel patterns: MIT, matching the OpenGameAgent project. Kenney dungeon.png: CC0 (see Kenney-CC0.txt). Font: SIL OFL (see ../FONT-LICENSE.txt). No artwork from the novel or 一念逍遥 is included.
