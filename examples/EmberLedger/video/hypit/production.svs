@@ -1,0 +1,2 @@
+<?svml using="@hypit/svs@1"?>
+<sheet version="1">film.main { background: #121e22; } media.clip { stack-order: 10; fit: contain; clip: frame; playback: once-start; }</sheet>

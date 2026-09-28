@@ -1,0 +1,8 @@
+game/.godot/
+game/*.import
+build/
+video/hypit/node_modules/
+video/hypit/.hypit/
+video/hypit/assets/*.mp4
+video/hypit/assets/*.wav
+video/hypit/assets/*.aiff

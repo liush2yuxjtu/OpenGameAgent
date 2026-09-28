@@ -1,0 +1,12 @@
+{
+  "game": "PASS",
+  "tests": [
+    "Godot import",
+    "memory gates and two endings",
+    "skill cooldown and AOE",
+    "normal demo driver: rescued both at 46.69s, HP65"
+  ],
+  "webPckSHA256": "d81827e9af6ae369af384243e3814d4ba5da7c80f8b0c1746209148512d03cb6",
+  "liveModel": "not exercised; offline orders in Web build",
+  "airtable": "pending: no exact original OpenGameAgent record found"
+}

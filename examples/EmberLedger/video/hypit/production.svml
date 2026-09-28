@@ -1,0 +1,37 @@
+<?svml using="@hypit/markup@1"?>
+<svml>
+ <import as="time" from="@hypit/timeline-author@1"/>
+ <import as="spatial" from="@hypit/spatial@1"/>
+ <import as="media" from="@hypit/media@1"/>
+ <import as="pipeline" from="@hypit/media-pipeline@1"/>
+ <import as="mt" from="@hypit/media-track@1"/>
+ <import as="audio" from="@hypit/audio-track@1"/>
+ <import as="loop" from="@game/loop-scene@1"/>
+ <import as="film" from="@hypit/film@1"/>
+ <import as="render" from="@hypit/render-hyperframes@1"/>
+ <import as="style" source="./production.svs"/>
+ <time:Clock id="clock" frame-rate="30"/>
+ <time:Timeline id="animation" clock={clock} end="36s"/>
+ <spatial:Canvas id="canvas" width="720" height="1280"/>
+ <spatial:Frame id="screen" within={canvas} left="0%" top="25%" right="100%" bottom="60.15625%"/>
+ <media:Font id="font" src="./assets/caption-font.otf" weight="600" style="normal"/>
+ <media:Image id="map" src="./assets/dungeon.png"/>
+ <media:Video id="footage" src="./assets/edit.mp4"/>
+ <pipeline:Normalize id="prepared" source={footage} video="primary-moving" audio="none" span-authority="video" clock={clock}/>
+ <mt:Track id="capture" timeline={animation.timeline} canvas={canvas}><mt:Item media={prepared.media} frame={screen} during="program" appearance={style.media.clip}/></mt:Track>
+ <media:Audio id="score" src="./assets/mix.wav"/>
+ <pipeline:Normalize id="music" source={score} video="none" audio="default" span-authority="audio" clock={clock}/>
+ <audio:Track id="sound" timeline={animation.timeline}><audio:Item source={music.media} during="program" gain="1" fade-out="15f"/></audio:Track>
+ <loop:Scene id="titles" timeline={animation.timeline} canvas={canvas} font={font} image={map} during="program" title="夺炉夜">
+ <loop:Message id="hook" sender="宗门招的不是弟子。" side="left" at="0s" text="是会自己走路的炼丹材料。"/>
+ <loop:Message id="pill" sender="第一世，信了师父。" side="left" at="3s" text="一颗免费丹药。换掉你一条命。"/>
+ <loop:Message id="memory" sender="死一次，只带回一件事。" side="left" at="7s" text="不是战力，是你亲手选的记忆。"/>
+ <loop:Message id="paper" sender="出门的契约，也在骗人。" side="left" at="11s" text="所谓通行牌，其实是回收凭据。"/>
+ <loop:Message id="list" sender="第三世，我翻开了名册。" side="left" at="15s" text="上面有我，也有一直跟着我的他。"/>
+ <loop:Message id="burn" sender="这次，烧掉他们的规矩。" side="left" at="20s" text="剑阵破围，护体扛伤，闪身躲阵。"/>
+ <loop:Message id="rescue" sender="少一点血，多一个活人。" side="left" at="28s" text="你救下的人，会和你一起战斗。"/>
+ <loop:Message id="end" sender="烬籍 · 夺炉夜" side="left" at="32s" text="如果还能重来，&#10;你会先记住哪一个谎？"/>
+ </loop:Scene>
+ <film:Film id="main" canvas={canvas} timeline={animation.timeline} appearance={style.film.main}><film:Track source={capture.visual}/><film:Track source={titles.track}/><film:Track source={sound.audio}/></film:Film>
+ <render:Video id="final" composition={main.composition} timeline={animation.timeline}/>
+</svml>
